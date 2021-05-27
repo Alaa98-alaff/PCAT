@@ -1,0 +1,27 @@
+{
+  "name": "pcat",
+  "version": "1.0.0",
+  "description": "PCAT photo app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alaa98-alaff/PCAT.git"
+  },
+  "keywords": [
+    "photo",
+    "app",
+    "camera"
+  ],
+  "author": "Alaa Alaff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alaa98-alaff/PCAT/issues"
+  },
+  "homepage": "https://github.com/Alaa98-alaff/PCAT#readme",
+  "devDependencies": {
+    "prettier": "2.3.0"
+  }
+}
