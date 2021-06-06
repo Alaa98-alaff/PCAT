@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 app.get('/', async (req, res) => {
   const photos = await Photo.find({});
   res.render('index', {
-    photos: photos,
+    photos,
   });
 });
 
@@ -33,9 +33,15 @@ app.get('/add', (req, res) => {
   res.render('add');
 });
 
+app.get('/photo', (req, res) => {
+  res.render('photo');
+});
+
+// to save our new image information to iur DATABase
 app.post('/photos', async (req, res) => {
   // our new photo information
   await Photo.create(req.body);
+
   // to go back to home page after submit
   res.redirect('/');
 });
