@@ -33,8 +33,10 @@ app.get('/add', (req, res) => {
   res.render('add');
 });
 
-app.get('/photo', (req, res) => {
-  res.render('photo');
+app.get('/photos/:id', async (req, res) => {
+  // console.log(req.params.id);
+  const photo = await Photo.findById(req.params.id);
+  res.render('photo', { photo });
 });
 
 // to save our new image information to iur DATABase

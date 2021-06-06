@@ -58,13 +58,14 @@ p {
   font-size: 1.9rem;
 }
 
-#tm-video-container {
+#tm-photo-container {
   max-height: 720px;
-  overflow: hidden;
-  background-color: #333;
+  /* overflow: hidden; */
+  /* background-color: #333; */
+  padding-left: 50px;
 }
 
-#tm-video {
+#tm-photo {
   width: 100%;
   height: auto;
 }
@@ -455,6 +456,7 @@ p {
 }
 .tm-video-description-box {
   max-width: 920px;
+  padding-left: 90px;
 }
 .tm-text-gray {
   color: #6f7071;
@@ -481,7 +483,7 @@ p {
   background-image: url(../img/contact-1.jpg);
 }
 
-video {
+img {
   width: 100%;
   height: auto;
 }
@@ -649,7 +651,7 @@ video {
     font-size: 1.4rem;
   }
 
-  #tm-video {
+  #tm-photo {
     width: 888px;
     height: 500px;
   }
