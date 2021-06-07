@@ -6,6 +6,8 @@ const path = require('path');
 const ejs = require('ejs');
 const Photo = require('./models/Photo.js');
 const app = express();
+const methodOverride = require('method-override');
+const { METHODS } = require('http');
 
 //connect DB
 mongoose.connect('mongodb://localhost/pcat-test', {
@@ -18,6 +20,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(fileUpload());
+app.use(methodOverride('_method', { methods: ['POST', 'GET'] }));
 
 //Templet Engine
 app.set('view engine', 'ejs');
@@ -43,6 +46,18 @@ app.get('/photos/:id', async (req, res) => {
   // console.log(req.params.id);
   const photo = await Photo.findById(req.params.id);
   res.render('photo', { photo });
+});
+
+//delete photo
+app.delete('/photos/:id', async (req, res) => {
+  // find the current photo and delete it frpm uploads folder
+  const photo = await Photo.findOne({ _id: req.params.id });
+  let deletedImage = __dirname + '/public/' + photo.image;
+  fs.unlinkSync(deletedImage);
+
+  // delete its database
+  await Photo.findByIdAndRemove(req.params.id);
+  res.redirect('/');
 });
 
 // Get Data from add page

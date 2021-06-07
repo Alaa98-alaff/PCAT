@@ -66,16 +66,17 @@ https://templatemo.com/tm-552-video-catalog
                       <span>Upload Photo</span>
                     </button>
                     <hr />
-
-                    <button
+                    
+                    <a href= "/photos/<%= photo._id %>?_method=DELETE"
                       class="
                         btn btn-primary-delete
                         p-0
                         tm-btn-animate tm-btn-delete tm-icon-delete
                       "
+                      onclick="return confirm('Are You Sure!!')"
                     >
                       <span>Delete Photo</span>
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
